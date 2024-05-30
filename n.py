@@ -341,8 +341,8 @@
 # --------------------
 
 #zadanie 4
-import matplotlib.pyplot as plt
-import numpy as np
+# import matplotlib.pyplot as plt
+# import numpy as np
 
 #1)
 # x = [0, 1, 2, 3]
@@ -365,7 +365,6 @@ import numpy as np
 # plt.show()
 
 #3)
-
 # data = [[15, 30, 1, 7, 23],
 #         [28, 6, 16, 5, 10],
 #         [29, 3, 24, 25, 16]]
@@ -380,3 +379,232 @@ import numpy as np
 # plt.ylabel('Students passed')
 # plt.legend()
 # plt.show()
+
+#4)
+# # Dane
+# sizes = [26.5, 16.2, 30.3, 26.2]
+# labels = ['Python', 'C++', 'Ruby', 'Java']
+# colors = ['yellow', 'g', 'm', 'c']
+# explode = (0.1, 0, 0, 0)  # Wyróżnienie segmentu Kategoria B
+
+# # Tworzenie wykresu kołowego
+# plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+
+# # Dodanie tytułu
+# # plt.title('Przykład wykresu kołowego')
+
+# # Równomierne skalowanie osi X i Y, aby koło było okrągłe
+# plt.axis('equal')
+
+# plt.show()
+
+#5)
+# # Dane przykładowe
+# category_1_data = [750,850,930,990,1050] #i tak dalej w następnych przykładach...
+# category_2_data = np.random.normal(820, 40, 100)
+# category_3_data = np.random.normal(880, 20, 100)
+# category_4_data = np.random.normal(830, 25, 100)
+# category_5_data = np.random.normal(870, 35, 100)
+# print(category_1_data)
+# data = [category_1_data, category_2_data, category_3_data, category_4_data, category_5_data]
+
+# plt.boxplot(data,)
+# plt.axhline(y=790, color='r', linestyle='-', label='true speed')
+# plt.ylabel('Speed of light (km/s minus 299,000)')
+# plt.xlabel('Experiment No.')
+
+# # plt.title('Wykres pudełkowy prędkości światła')
+# # plt.legend()
+# plt.show()
+
+#6)
+# -----------------------?
+
+#=====================================
+
+#Lista 9 
+#Zadanie 1
+# w pllikach
+
+
+#Zadanie 2
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# # Wczytanie danych
+# penguins = sns.load_dataset("penguins")
+# penguins = penguins.dropna()
+# # Przygotowanie mapy kolorów i kształtów
+# color_map = {'Male': 'blue', 'Female': 'red'}
+# shape_map = {'Adelie': 'o', 'Chinstrap': 's', 'Gentoo': 'D'}
+
+# # Tworzenie nowej figury i osi
+# fig, ax = plt.subplots()
+
+# # Iteracja po każdym wierszu danych i rysowanie punktu
+# for idx, row in penguins.iterrows():
+#     ax.scatter(row['bill_length_mm'], row['bill_depth_mm'], color=color_map[row['sex']], 
+#                s=row['body_mass_g']/50, marker=shape_map[row['species']])
+
+# # Ustawienie etykiet osi
+# ax.set_xlabel('Długość dzioba (mm)')
+# ax.set_ylabel('Szerokość dzioba (mm)')
+
+# # Wyświetlenie wykresu
+# plt.show()
+
+#-------------------------------
+
+#Zadanie 3
+# a)
+# import seaborn as sns
+# import matplotlib.pyplot as plt
+# import pandas as pd
+
+# iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
+
+# # Tworzenie nowej figury i osi dla wykresów punktowych
+# fig, axs = plt.subplots(1, 2, figsize=(15, 5))
+
+# # Wykresy punktowe
+# sns.scatterplot(data=iris, x='sepal_length', y='sepal_width', hue='species', ax=axs[0])
+# sns.scatterplot(data=iris, x='petal_length', y='petal_width', hue='species', ax=axs[1])
+# # Wykresy catplot
+# sns.catplot(data=iris, x='species', y='sepal_length')
+# sns.catplot(data=iris, x='species', y='sepal_width')
+# sns.catplot(data=iris, x='species', y='petal_length')
+
+
+# # Wyświetlenie wykresu
+# plt.tight_layout()
+# plt.show()
+
+# b)
+# import seaborn as sns
+# import pandas as pd
+
+# # Wczytanie danych
+# iris = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv')
+
+# # Rysowanie pairplot
+# sns.pairplot(iris, hue='species')
+# plt.show()
+
+#=================================
+#Lista 12
+#Zadanie 1
+# import numpy as np
+# import matplotlib.pyplot as plt
+# x = np.linspace(-4, 4, 100)
+# y = np.sin(x)
+# y1 = 2*np.sin(x)
+# y2 = np.sin(2*x)
+# plt.plot(x, y2, 'blue', linestyle="-", label="sinx")
+# plt.plot(x, y1, 'red', linestyle=":", label="2sin(x)")
+# plt.plot(x, y, 'green', linestyle="--", label="sin(2x)")
+# plt.legend(title='Wykres')
+# plt.show()
+
+# Zadanie 2 -----------------------------------------------
+# import numpy as np
+# import matplotlib.pyplot as plt
+# import math
+# a)
+# x = np.linspace(-10, 10, 100)
+# y = 1/(1+x**2)
+# plt.plot(x, y, 'green', linestyle="-", label="1/(1+x^2)")
+# plt.legend(title='Wykres')
+# plt.show()
+# b)
+# x = np.linspace(0, 4, 100)
+# y1 = x**2
+# y2 = math.e**x
+# y3 = x**x
+# plt.plot(x, y1, 'cyan', linestyle="-", label="x^2")
+# plt.plot(x, y2, 'green', linestyle="--", label="e^x")
+# plt.plot(x, y3, 'magenta', linestyle="-.", label="x^x")
+# plt.legend(title='Wykresy')
+# plt.show()
+# c)
+# x = np.linspace(0, 4, 100)
+# y1 = x**2
+# y2 = math.e**x
+# y3 = x**x
+#
+# fig, [ax, ax1, ax2] = plt.subplots(nrows=3, ncols=1)
+# ax.plot(x, y1, c='green', linestyle="--")
+#
+# ax.set_xlim([0, 3])
+# ax.set_ylim([0, 20])
+# ax1.plot(x, y2, c='red', linestyle=":")
+#
+# ax1.set_xlim([0, 3])
+# ax1.set_ylim([0, 20])
+# ax2.plot(x, y3, c='cyan', linestyle="-")
+#
+# ax2.set_xlim([0, 3])
+# ax2.set_ylim([0, 20])
+# fig.legend([ax, ax1, ax2], title="Wykres", labels=["x^2", "e^x", "x^x"], loc="upper center")
+#
+# plt.show()
+
+# Zadanie 3
+# import numpy as np
+# import seaborn as sns
+# import matplotlib.pyplot as plt
+# a)
+# def sinplot(flip=1):
+#     x = np.linspace(0, 14, 100)
+#     for i in range(1, 5):
+#         plt.plot(x, np.sin(x + i* .5)*(7 - i)* (flip))
+# sns.set_style("whitegrid")
+# sns.set_palette("husl")
+# sinplot()
+# print(sns.axes_style())
+# plt.show()
+# b)
+# x = np.linspace(-2, 2, 100)
+# x_sqrt = np.linspace(0, 2, 100)
+# y_x = x
+# y_x2 = x**2
+# y_x3 = x**3
+# y_sqrt = np.sqrt(x_sqrt)
+# y_sqrt3 = np.cbrt(x_sqrt)
+# sns.set_style("darkgrid")
+# plt.figure(figsize=(8, 6))
+# plt.plot(x, y_x)
+# plt.plot(x, y_x2)
+# plt.plot(x, y_x3)
+# plt.plot(x_sqrt, y_sqrt)
+# plt.plot(x_sqrt, y_sqrt3)
+# plt.show()
+
+# Zadanie 4
+# import numpy as np
+# import pandas as pd
+# import seaborn as sns
+# import matplotlib.pyplot as plt
+# import matplotlib as mpl
+# import matplotlib.ticker as mtick
+
+# glue = sns.load_dataset("glue")
+# # print(glue)
+
+# glue_df = sns.catplot(
+# data= glue,
+# kind="violin",
+# x = 'Year',
+# y ='Score',
+# hue = 'Encoder',
+# col = 'Encoder',
+# row = 'Year',
+# height=3,
+# aspect = 1.5,
+# palette=sns.color_palette(['green', 'orange']))
+
+# glue_df.set_axis_labels('Year', 'Scores')
+# plt.show()
+
+# Więcej nie wykminię :P ,  K O N I E C
+#------------------------------#
+#pip install -m requirements.txt <- instalacja ręczna w terminalu requirements.txt
