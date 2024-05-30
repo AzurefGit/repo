@@ -428,8 +428,8 @@
 
 
 #Zadanie 2
-import seaborn as sns
-import matplotlib.pyplot as plt
+# import seaborn as sns
+# import matplotlib.pyplot as plt
 
 # # Wczytanie danych
 # penguins = sns.load_dataset("penguins")
